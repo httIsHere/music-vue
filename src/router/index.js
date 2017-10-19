@@ -1,7 +1,8 @@
 // 页面切换路由设置
 import Vue from 'vue'
 import Router from 'vue-router'
-import MyMusic from '../components/myMusic'
+import MyMusic from '../components/MyMusic'
+import Header from '../components/Header'
 
 Vue.use(Router)
 
@@ -9,12 +10,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: 'firstPage'
+      redirect: '/myMusic'
     },
     {
       path: '/myMusic',
       name: 'myMusic',
       component: MyMusic
+    },
+    {
+      path: '/findMusic',
+      name: 'findMusic',
+      // component: FindMusic
     }
   ]
 })

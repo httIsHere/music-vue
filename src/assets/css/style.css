@@ -1,0 +1,154 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+/*------------header----------*/
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 3rem;
+	z-index: 10;
+	padding: 0 .8rem;
+	line-height: 3rem;
+}
+.header-wrapper{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.header-wrapper i{
+	font-size: 1.3rem;
+}
+.centerMenu i{
+	margin: 0 .5rem;
+	color: rgba(0,0,0,.7);
+}
+.centerMenu .active{
+	color: palevioletred;
+}
+/*------------left bar-----------*/
+.leftBar .menu-mask{
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	opacity: 1;
+	z-index:10;
+	background:rgba(0, 0, 0, 0.5);
+	transform:translateZ(0);
+}
+.leftBar .fade-enter-to, .leftBar .fade-leave-to{
+	transition: opacity 0.3s;
+}
+.leftBar .fade-enter, .leftBar .fade-leave-to{
+	opacity: 0;
+}
+.leftBar .menu-content{
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	z-index:11;
+	background: #FFF;
+	height: 100%;
+	width: 18rem;
+}
+.leftBar .side-enter-to, .leftBar .side-leave-to{
+	transition: transform 0.3s;
+}
+.leftBar .side-enter, .leftBar .side-leave-to{
+	transform:translate3d(-18rem,0,0)
+}
+.menu-detail{
+	height: 10rem;
+	color: #FFF;
+	background: url(../images/bk.jpg);
+	background-size: 100%;
+}
+.menu-detail .menu-userInfo{
+	height: 10rem;
+	padding: 0 .8rem;
+	background: rgba(0, 0, 0, 0.5);
+}
+.menu-userInfo .avatar{
+	margin-top: 4rem;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 1.5rem;
+	border: 1px solid #FFF;
+}
+.menu-userInfo .user-detail{
+	display: inline-block;
+	font-size: .85rem;
+}
+.user-detail .isVip{
+	height: 1rem;
+	height: 1rem;
+}
+.user-detail .progress{
+	font-size: .4rem;
+	width: 1.5rem;
+}
+.sign{
+	float: right;
+	font-size: .5rem;
+	padding: 0 .3rem;
+	border-radius: .5rem;
+	border: 1px solid #FFF;
+}
+.sign i{
+	margin-right: .2rem;
+}
+.sideList{
+	padding: 0 .5rem;
+	height: 2rem;
+	line-height: 2rem;
+}
+.sideList .active{
+	background: #f0f0f0;
+}
+.sideList .icon{
+	margin-right: .8rem;
+}
+.sideList .title{
+	font-size: .8rem;
+}
+.sideList .disc{
+	font-size: .58rem;
+	color: #9c9c9c;
+	float: right;
+}
+.footer{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	height: 3.5rem;
+	width: 18rem;
+}
+.footer > div{
+	height: 3.5rem;
+	padding: 0 .8rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.border-1px{
+	border-top: 1px solid #eee;
+	margin: 0;
+}
+/*---------------split-------------*/
+.split{
+	display:block;
+	width:100%;
+	box-sizing:border-box;
+	border-width:1px;
+	border:none;
+	border-top-width:1px;
+	border-top-style:solid;
+	border-bottom-width:1px;
+	border-bottom-style:solid;
+}

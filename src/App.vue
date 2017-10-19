@@ -19,20 +19,32 @@
 </template>
 
 <script>
-import header from './components/header'
-import leftbar from './components/leftBar'
-import musiclist from './components/musicList'
-import bottomplayer from './components/bottomPlayer'
-import mymusic from './components/myMusic'
-import musicdetail from './components/musicDetail'
-import albumdetail from './components/albumDetail'
+import Header from './components/Header'
+import LeftBar from './components/LeftBar'
+import MusicList from './components/MusicList'
+import BottomPlayer from './components/BottomPlayer'
+import MyMusic from './components/MyMusic'
+import MusicDetail from './components/MusicDetail'
+import AlbumDetail from './components/AlbumDetail'
 
 export default {
   name: 'app',
   data () {
   	return {
-  		info: {}
+  		info: {
+  			name: '翘课迟到少恭桑',
+  			grade: 7
+  		}
   	}
+  },
+  components: {
+  	"v-header": Header,
+  	LeftBar,
+  	MusicDetail,
+  	MusicList,
+  	MyMusic,
+  	BottomPlayer,
+  	AlbumDetail
   },
   methods: {
   	
@@ -41,13 +53,17 @@ export default {
 </script>
 
 <style>
-@import "/static/font-icon/style.css"
+@import url("/static/font-icon/style.css");
+@import url("assets/css/style.css");
+body{
+	margin: 0;
+	padding: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /*text-align: center;*/
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

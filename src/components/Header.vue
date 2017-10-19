@@ -1,28 +1,29 @@
 <template>
 	<div class="header">
 		<div class="header-wrapper">
-			<i class="menu icon-menu"></i>
+			<i class="menu icon-menu" @click="showMyMenu"></i>
 			<div class="centerMenu">
 				<router-link tag="i" to="/myMusic">
 					<i class="music icon-music" :class="{'active': selectIndex===0}"></i>
 				</router-link>
 				<router-link tag="i" to="/findMusic">
-					<i class="find icon-wangyi"></i>
+					<i class="find icon-wangyi" :class="{'active': selectIndex===2}"></i>
 				</router-link>
 				<router-link tag="i" to="/community">
-					<i class="community icon-community"></i>
+					<i class="community icon-community" :class="{'active': selectIndex===3}"></i>
 				</router-link>
 			</div>
 			<i class="search icon-search"></i>
-			<router-view></router-view>
+			<!--<router-view></router-view>-->
 		</div>
 	</div>
 </template>
 
 <script>
-	import store from '../../store'
+	import store from '../store'
 	import { mapState, mapMutations, mapActions } from 'vuex'
 	export default {
+		name: "header",
 		props: {
 			index: {
 				type: Number,
@@ -30,7 +31,7 @@
 			},
 			showMenu: {
 				type: Boolean,
-				default: fasle
+				default: false
 			}
 		},
 		data (){
@@ -40,12 +41,11 @@
 			}
 		},
 		methods: {
-			showMenu () {
-				
+			showMyMenu () {
+				store.dispatch({
+					type: 'showLeftBar'
+				})
 			}
 		}
 	}
 </script>
-
-<style>
-</style>
