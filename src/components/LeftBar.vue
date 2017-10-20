@@ -6,7 +6,7 @@
 
 		<transition name="side">
 			<div class="menu-content" v-show="isRealShow">
-				<div class="menu-detail">
+				<div class="menu-detail" ref="menuDetail">
 					<div class="menu-userInfo">
 						<img :src="info.avatar" class="avatar" /><br />
 						<div class="user-detail">
@@ -95,6 +95,10 @@
 		components: {
 			sidelist,
 			split
+		},
+		mounted () {
+			console.log(this.info.bg)
+			this.$refs.menuDetail.style.backgroundImage = "url("+this.info.bg+")"
 		}
 	}
 </script>
