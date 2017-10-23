@@ -7,7 +7,7 @@
 			<div class="swiper-pagination swiper-pagination-white"></div>
 		</div>
 		<div class="musicView-menu">
-			<router-link class="menu-list" tag="div" to="/findMusic/findrecommend">
+			<router-link class="menu-list" tag="div" to="/findMusic/findRecommend">
 				<div class="menu-list-div">
 					<div class="recommand">
 						<i class="icon-vip"></i>
@@ -40,18 +40,23 @@
 				</div>
 			</router-link>
 		</div>
+		<p class="border-1px"></p>
+		<find-recommend-title></find-recommend-title>
+		<div class="recommend-list">
+			<find-recommend-list v-if="reconmmend" v-for="(sheet, sheetindex) in reconmmend.findmusic.reconmmend.recommendMinSheets" :key="sheet.id" :imagesrc="sheet.info[0].img_url" :showtoprighttips="sheet.showtoptips" :listpadding="sheet.padding" :toprighticonclass="sheet.toptipsclass" :toprighttitle="sheet.listencount" :showbottomtips="sheet.showbottomtips" :bottomtips="sheet.bottomtips" :showbottomtitle="sheet.showbottomtitle" :bottomtitle="sheet.bottomtitle" :listwidth="sheet.listwidth"></find-recommend-list @click.stop="showSongSheet(list)">
+		</div>
 	</div>
 </template>
 
 <script>
+	import store from '../store'
 	import Swiper from 'swiper'
 	import 'swiper/dist/css/swiper.min.css';
+	import FindRecommendTitle from './FindRecommendTitle'
+	import FindRecommendList from './FindRecommendList'
 	export default {
 		name: 'musicView',
 		props: ['listImg'],
-		data () {
-			return {}
-		},		
 		mounted () {
 			var swiper = new Swiper('.swiper-container', {
 				pagination: '.swiper-pagination',
@@ -63,6 +68,27 @@
                     swiper.startAutoplay()
                 }
 			})
-		}
+		},
+		components: {
+			FindRecommendTitle,
+			FindRecommendList
+		},
+		computed: {
+			reconmmend () {
+				return store.getters.getAllInfo
+			}
+		},
+	    methods: {
+			showSongSheet (data) {
+				store.dispatch({
+					type: 'set_MusicSheetList',
+					data: data
+				})
+				store.commit({
+					type: 'setIsShowSongSheet',
+					isShow: true
+				})
+			}
+	    }
 	}
 </script>

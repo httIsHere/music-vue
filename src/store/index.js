@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import LeftBar from './modules/leftBar'
 import AudioInfo from './modules/player'
 import MusicList from './modules/musicList'
+import MenuList from './modules/menuList'
 
 Vue.use(Vuex)
 
@@ -13,7 +14,7 @@ const store = new Vuex.Store({
     },
     getters: {
         getAllInfo: state => state.allInfo,
-        getFindMusic: state => state.musicAllList.findMusic,
+        // getFindMusic: state => state.musicAllList.findMusic,
         getCurrentView: state => state.currentView
     },
     mutations: {
@@ -35,7 +36,8 @@ const store = new Vuex.Store({
     modules: {
         leftBar: LeftBar,
         audioInfo: AudioInfo,
-        musicList: MusicList
+        musicList: MusicList,
+        menuList: MenuList
     }
 })
 

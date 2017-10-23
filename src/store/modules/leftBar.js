@@ -23,8 +23,8 @@ const leftBar = {
         }
     },
     getters: {
-        isShowMethod () {
-            return this.state.isShow
+        isShowMethod (state) {
+            return state.isShow
         }
     }
 }
