@@ -6,6 +6,7 @@ import FindMusic from '../components/FindMusic'
 import FindRecommendView from '../components/FindRecommendView'
 import Header from '../components/Header'
 import MusicDetail from '../components/MusicDetail'
+import Community from '../components/Community'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/findMusic/findRecommend',
       name: 'findRecommend',
       component: FindRecommendView
+    },
+    {
+      path: '/community',
+      name: 'community',
+      component: Community
     }
   ]
 })

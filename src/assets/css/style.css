@@ -8,6 +8,9 @@ li{
 p{
 	margin: 0;
 }
+::-webkit-scrollbar{
+	width:0px;
+}
 /*------------header----------*/
 .header {
 	position: fixed;
@@ -436,24 +439,41 @@ p{
 }
 /* ------------find recommend list------------- */
 .findRecommendView{
-	margin: 3rem 0;
 	font-size: .8rem;
+	position: fixed;
+	top: 3rem;
+	left: 0;
+	right: 0;
+	bottom: 2rem;
 }
 .findRecommendView .titleImage{
-	height: 10rem;
+	height: 13rem;
 	background: url(http://p1.music.126.net/MsxtxgkMQELVADsF-zBSQA==/18515775813821217.jpg);
 	background-size: 100% 100%;
 }
-.findRecommendView .titleImage span{
+.findRecommendView .titleImage .wenan span{
 	color: #FFF;
 	position: absolute;
 	margin-top: 8rem;
 	margin-left: 2rem;
 }
-.findRecommendView .titleImage div{
+.findRecommendView .titleImage .wenan{
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.5);
+}
+.findRecommendView .frDo{
+	padding: 0 .8rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 2rem;
+	position: absolute;
+	margin-top: -3rem;
+	color: #fff;
+	left: 0;
+	right: 0;
+	font-size: 1.0rem;
 }
 .findRecommendView .playBar{
 	height: 2rem;
@@ -484,7 +504,7 @@ p{
 	bottom: 0;
 	right: 0;
 	z-index: 100;
-	background: #aaa;
+	background: #ddd;
 	width: 100%;
 	transform: translate3d(0,0,0);
 	color: #FFF;
@@ -511,9 +531,9 @@ p{
 	background-size: cover;
 	background-position: center center;
 	right:0;
-	z-index:5;
+	/* z-index:5; */
 	/* filter: url(../images/blur.svg#blur); */
-	/* filter:blur(30px); */
+	filter:blur(1.5rem);
 	background: url(../images/bk.jpg);
 }
 .MusicDetail .contentHeader{
@@ -522,15 +542,20 @@ p{
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 .8rem;
+	z-index: 20;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
 }
 .MusicDetail .contentHeader .singer{
 	font-size: .5rem;
 }
 .MusicDetail .content-wrapper{
 	position: absolute;
-	top: 10rem;
+	top: 3rem;
 	left: 0;
-	bottom: 20rem;
+	/* bottom: 20rem; */
 	right: 0;
 	overflow: hidden;
 }
@@ -542,7 +567,7 @@ p{
 }
 .cd .switch-line{
 	width: 80%;
-	height: 8rem;
+	height: 1px;
 	background-image:-webkit-linear-gradient(to left, rgba(255,255,255,0),rgba(255,255,255,0.6),rgba(255,255,255,0)); 
 	background-image:linear-gradient(to left, rgba(255,255,255,0),rgba(255,255,255,0.6),rgba(255,255,255,0));
 	margin:0 auto;
@@ -551,10 +576,142 @@ p{
 	position: absolute;
 	width: 5rem;
 	height: 8rem;
-	top: -7rem;
+	top: -1rem;
 	left: 50%;
-	transform: translate3d(-10rem, 0, 0);
+	/* transform: translate3d(10rem, 0, 0); */
 	background-image:url('../images/swith.png');
 	background-size:cover;
 	z-index: 25;
+}
+.cd .triger .pause{
+	transform: rotateZ(-30deg);
+}
+.cd-content .wrapper{
+	width: 18rem;
+	height: 18rem;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 4rem;
+}
+.animate{
+	animation: goRotate 16s linear infinite .1s;
+}
+.cd-bg{
+	position: absolute;
+	top: 0;
+	width: 18rem;
+	height: 18rem;
+	left: 50%;
+	transform:translate3d(-50%,0,0);
+	background: url(../images/cd-mine.png);
+	background-size:100%;
+	z-index:2;
+}
+.cd-content .wrapper .img{
+	position: absolute;
+	display: block;
+	width: 15rem;
+	height: 15rem;
+	top: 1.5rem;
+	transition: all .3s;
+	left: 50%;
+	transform:translate3d(-50%,0,0);
+	z-index:1;
+	border-radius: 7.5rem;
+}
+.musicDo{
+	height: 5rem;
+	margin: 5rem 5rem;
+	font-size: 1.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.MusicDetail .content-footer{
+	height: 5rem;
+	position: fixed;
+	bottom: 2rem;
+	left: 0;
+	right: 0;
+	padding: 0 1.5rem;
+}
+.musicDetailCtrl{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 2rem;
+	margin-top: 1.5rem;
+}
+.lrc-wrapper{
+	position: fixed;
+	top: 3rem;
+	left: 0;
+	bottom: 7rem;
+	right: 0;
+	overflow-y: visible;
+	z-index: 20;
+	padding: 0 1.5rem;
+	font-size: .9rem;
+	color: rgba(255,255,255,0.7);
+}
+.lrc-wrapper .fade-enter-to, .lrc-wrapper .fade-leave-to{
+	transition: opacity .5s;
+}
+.lrc-wrapper .fade-enter, .lrc-wrapper .fade-leave-to{
+	opacity: 0;
+}
+.lrc{
+	overflow-y: auto;
+	height: calc(90%);
+}
+.lrc .div-lrc p{
+	text-align: center;
+	line-height: 1.5rem;
+}
+/* -------------range------------ */
+.range{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 2rem;
+	font-size: .7rem;
+	color: rgba(255,255,255,0.8);
+}
+.rangeicon{
+	font-size: .8rem;
+	color: rgba(255,255,255,0.7);
+	margin-right: .5rem;
+}
+.duration{
+	height: 2px;
+	border-radius:1px;
+	background:rgba(244,244,244,0.3);
+	margin:0 auto;
+	cursor: pointer;
+	position: relative;
+	width: 100%;
+	margin: 0 .5rem;
+}
+.currentProgress{
+	height: 2px;
+	background: palevioletred;
+	display: inline-block;
+	float: left;
+}
+.ball{
+	position: absolute;
+	width: .8rem;
+	height: .8rem;
+	border-radius: .4rem;
+	background: #fff;
+	margin-top: -.4rem;
+	margin-left: -.4rem;
+}
+.volume-range .range .currentProgress{
+	background: rgba(255,255,255,0.8);
+	width: 20%;
+}
+/* -------------community------------ */
+.community{
+	margin-top: 3rem;
 }
