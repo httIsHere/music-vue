@@ -43,8 +43,9 @@
 		<p class="border-1px"></p>
 		<find-recommend-title></find-recommend-title>
 		<div class="recommend-list">
-			<find-recommend-list v-if="reconmmend" v-for="(sheet, sheetindex) in reconmmend.findmusic.reconmmend.recommendMinSheets" :key="sheet.id" :imagesrc="sheet.info[0].img_url" :showtoprighttips="sheet.showtoptips" :listpadding="sheet.padding" :toprighticonclass="sheet.toptipsclass" :toprighttitle="sheet.listencount" :showbottomtips="sheet.showbottomtips" :bottomtips="sheet.bottomtips" :showbottomtitle="sheet.showbottomtitle" :bottomtitle="sheet.bottomtitle" :listwidth="sheet.listwidth"></find-recommend-list @click.stop="showSongSheet(list)">
+			<find-recommend-list v-if="reconmmend" v-for="(sheet, sheetindex) in reconmmend.findmusic.reconmmend.recommendMinSheets" :sheet="sheet" :key="sheet.id" :imagesrc="sheet.info[0].img_url" :showtoprighttips="sheet.showtoptips" :listpadding="sheet.padding" :toprighticonclass="sheet.toptipsclass" :toprighttitle="sheet.listencount" :showbottomtips="sheet.showbottomtips" :bottomtips="sheet.bottomtips" :showbottomtitle="sheet.showbottomtitle" :bottomtitle="sheet.bottomtitle" :listwidth="sheet.listwidth" @click.stop="showSongSheet()"></find-recommend-list>
 		</div>
+		<find-recommend-view></find-recommend-view>
 	</div>
 </template>
 
@@ -54,6 +55,7 @@
 	import 'swiper/dist/css/swiper.min.css';
 	import FindRecommendTitle from './FindRecommendTitle'
 	import FindRecommendList from './FindRecommendList'
+	import FindRecommendView from './FindRecommendView'
 	export default {
 		name: 'musicView',
 		props: ['listImg'],
@@ -71,7 +73,8 @@
 		},
 		components: {
 			FindRecommendTitle,
-			FindRecommendList
+			FindRecommendList,
+			FindRecommendView
 		},
 		computed: {
 			reconmmend () {

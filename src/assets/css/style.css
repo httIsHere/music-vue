@@ -213,7 +213,7 @@ p{
 .musicListContent{
 	height: 25rem;
 	background: #FFF;
-	z-index: 11;
+	z-index: 20;
 	position: fixed;
 	left: 0;
 	right: 0;
@@ -410,7 +410,7 @@ p{
 	color: #aaa;
 }
 /* -------------------find recommend--------------- */
-.findRecommend .titleText{
+.findRecommendTitle .titleText{
 	border-left: .2rem solid palevioletred;
 	padding-left: .5rem; 
 	display: inline-block;
@@ -441,22 +441,87 @@ p{
 .findRecommendView{
 	font-size: .8rem;
 	position: fixed;
-	top: 3rem;
+	top: 0;
 	left: 0;
 	right: 0;
-	bottom: 2rem;
+	bottom: 3rem;
+	z-index: 10;
+	background: #fafafa;
+}
+.findRecommendView .side-enter-to, .findRecommendView .side-leave-to{
+	transition: all 0.3s;
+}
+.findRecommendView .side-enter, .findRecommendView .side-leave-to{
+	transform: translate3d(100%,0,0);
+}
+.findRecommendView .fade-enter-to, .findRecommendView .fade-leave-to{
+	transition: all 0.3s;
+}
+.findRecommendView .fade-enter, .findRecommendView .fade-leave-to{
+	opacity: 0;
+}
+.findRecommendView .sliderUpHideRight-enter-to, .findRecommendView .sliderUpHideRight-leave-to{
+	transition: all 0.3s;
+}
+.findRecommendView .sliderUpHideRight-enter{
+	transform:translate3d(0,100%,0);
+	opacity: 0;
+}
+.findRecommendView .sliderUpHideRight-leave-to{
+	transform:translate3d(100%,0,0);
+	opacity: 0;
 }
 .findRecommendView .titleImage{
 	height: 13rem;
 	background: url(http://p1.music.126.net/MsxtxgkMQELVADsF-zBSQA==/18515775813821217.jpg);
 	background-size: 100% 100%;
+	color: #FFF;
 }
-.findRecommendView .titleImage .wenan span{
+.findRecommendView .songHeader{
+	color: #FFF;
+	height: 3rem;
+	padding: 0 .8rem;
+	line-height: 3rem;
+}
+.findRecommendView .songHeader .back{
+	margin-right: .8rem;
+}
+.findRecommendView .sheetInfo{
+	padding: 0 .8rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.findRecommendView .sheetInfo .sheetImage{
+	width: 6.5rem;
+	height: 6.5rem;
+	border: 1px solid #FFF;
+}
+.findRecommendView .sheetInfo .sheetImage .image{
+	width: 100%;
+	height: 100%;
+}
+.findRecommendView .sheetInfo .info {
+	width: 14rem;
+}
+.findRecommendView .sheetInfo .info img{
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: .75rem;
+}
+.findRecommendView .user{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: .8rem;
+
+}
+/* .findRecommendView .titleImage .wenan span{
 	color: #FFF;
 	position: absolute;
 	margin-top: 8rem;
 	margin-left: 2rem;
-}
+} */
 .findRecommendView .titleImage .wenan{
 	width: 100%;
 	height: 100%;
@@ -469,7 +534,7 @@ p{
 	align-items: center;
 	height: 2rem;
 	position: absolute;
-	margin-top: -3rem;
+	margin-top: -2.2rem;
 	color: #fff;
 	left: 0;
 	right: 0;
@@ -484,6 +549,25 @@ p{
 }
 .playBar .icon-playdetail{
 	margin-right: .8rem;
+}
+/* -------------song list--------------- */
+.songLists .songList > .songListInfo{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 .8rem;
+	height: 2rem;
+}
+.songLists .songList .wrapper{
+	width: 95%;
+	font-size: .9rem;
+}
+.songLists .songList .wrapper > div{
+	display: inline-block;
+}
+.songLists .songInfo .singer{
+	color: #aaa;
+	font-size: .58rem;
 }
 /* -------------music detail------------ */
 @keyframes goRotate{

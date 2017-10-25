@@ -1,5 +1,5 @@
 <template>
-	<div class="findRecommendList">
+	<div class="findRecommendList" @click="showSongSheet(sheet)">
 		<div class="content">
 			<img :src="imagesrc" class="image" />
 			<span class="toprighttips" v-if="showtoprighttips">
@@ -13,8 +13,12 @@
 </template>
 
 <script>
+	import store from '../store'
 	export default {
 		props: {
+			sheet: {
+				type: Object
+			},
 			imagesrc: {
 				type: String
 			},
@@ -47,6 +51,18 @@
 			formartTopRight () {
 				const numberInfo = Number(this.toprighttitle)
 				return numberInfo > 10000 ? `${Math.floor(numberInfo / 10000)}万` : numberInfo
+			}
+		},
+		methods: {
+			showSongSheet (data) {
+				store.dispatch({
+					type: 'set_MusicSheetList',
+					data: data
+				})
+				store.commit({
+					type: 'setIsShowSongSheet',
+					isShow: true
+				})
 			}
 		}
 	}
